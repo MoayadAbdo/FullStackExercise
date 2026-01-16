@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Server
+
+    User->>Browser: Writes a note and clicks Save
+    Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa (JSON)
+    activate Server
+    Server->>Server: Save the new note
+    Server-->>Browser: 201 Created
+    deactivate Server
+
+    Note right of Browser: JavaScript updates the UI without reloading the page
